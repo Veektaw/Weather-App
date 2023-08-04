@@ -11,8 +11,25 @@ def index(request):
     if request.method == 'POST':
         city1 = request.POST['city1']
         city2 = request.get['city2', None]
+        
+        weather_data1, daily_forecasts1 = featch_forecast(city1, API_KEY, current_weather_url, forecast_url)
+        
+        if city2:
+            weather_data2, daily_forecasts2 = featch_forecast(city2, API_KEY, current_weather_url, forecast_url)
+        else:
+            weather_data2, daily_forecasts2 = None, None
+            
+        context = {
+            "weather_data1": weather_data1,
+            "daily_forecasts1": daily_forecasts1,
+            "weather_data2": weather_data2,
+            "daily_forecasts2": daily_forecasts2
+        }
+        
+        return render(request, "index.html", context)    
+        
     else:
-        return render()
+        return render(request, "index.html")
     
 
 
@@ -40,3 +57,5 @@ def featch_forecast(city, api_key, current_weather_url, forecast_url):
             "description": daily_data['weather'][0] ['description'],
             "icon": daily_data['weather'][0]['icon']
         })
+        
+    return weather_data, daily_data
