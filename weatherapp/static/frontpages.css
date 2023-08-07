@@ -6,12 +6,38 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Raleway";
-  
 }
 
-body,
-input {
-  font-family: "Raleway";
+
+.parentDiv {
+  width: 100%;
+  background-color: #FF7A00;
+  color: white;
+  height: 70px;
+}
+
+.nav {
+  text-align: center;
+}
+
+ul li{
+  display: inline-block;
+  padding: 0 5px;
+}
+
+li {
+  margin-top: 22px;
+  font-size: 23px;
+}
+
+
+
+  
+form {
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
 }
 
 .search{
@@ -21,7 +47,9 @@ input {
     display: flex;
     border-radius: 50px;
     font-size: 18px;
-    position: relative;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
     left:30%;
     top:200px;
 }
