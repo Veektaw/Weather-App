@@ -4,7 +4,7 @@ from django.shortcuts import render
 import datetime
 
 def index(request):
-    API_KEY = '4e86a244f2390ce5f67c7cd1b533ee69'
+    API_KEY = ''
     current_weather_url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}"
     forecast_url = "https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude=current,hourly,minutely,hourly,alerts&appid={}"
 
@@ -49,7 +49,7 @@ def fetch_forecast(city, api_key, current_weather_url, forecast_url):
     }
     
     daily_forecasts = []
-    for daily_data in forecast_response["daily"][:5]:
+    for daily_data in forecast_response['daily'][:5]:
         daily_forecasts.append ({
             "day": datetime.datetime.fromtimestamp(daily_data['dt']).strftime("%A"),
             "min_temp": round(daily_data['temp']['min'] - 273.15, 2),
