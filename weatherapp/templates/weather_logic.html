@@ -2,5 +2,19 @@
     <h1>{{weather-data.city }}</h1>
     <h2>{{ weather_data.temperature }}</h2>
     <p>{f weather_data.description }}</p>
-    <img spc="http: //openweathermap.org/img/&/".>
+    <img src="http://openweathermap.org/img/w/{{weather data.icon}}.png" alt="{{weather_data.description}}">
+{% endif %}
+
+{% if daily_forecasts %}
+    <h2>FIVE DAY FORECAST</h2>
+        <center><div>
+            {% for forecast in daily_forecast %}
+                <div>
+                    <h3>{{forecast.day}}</h3>
+                    <p>{{forecast.min_temp}}°C - {{forecast.max_temp}}°C</p>
+                    <p>{{forecast.description}}</p>
+                    <img src="http://openweathermap.org/img/w/{{weather data.icon}}.png" alt="{{weather_data.description}}">
+                </div>
+            {% endfor %}
+        </div></center>
 {% endif %}

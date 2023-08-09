@@ -23,7 +23,7 @@
       {% csrf_token %}
     <div class="search" style="margin-top: 120px;">
       
-     <input type="text" name="city2" placeholder="Search first city">
+     <input type="text" name="city1" placeholder="Search first city">
      <div class="button-src">
          <button>Search</button>
        
@@ -34,7 +34,7 @@
   
 
 
-    <form>
+    <form method="post">
       {% csrf_token %}
       <div class="search">
         
@@ -51,7 +51,7 @@
   {% if weather_data1%}
 <div class="contain">
   <div class="row">
-    <div class="col-5">Test</div>
+    {% include 'weather_logic.html' with weather_data=weather_data1 daily_forecasts=daily_forecasts1 %}
   </div>
   {% endif %}
 </center>
@@ -62,7 +62,7 @@
   {% if weather_data2%}
   <div class="contain" style="margin-top: 0">
     <div class="row">
-      <div class="col-5">Test</div>
+      {% include 'weather_logic.html' with weather_data=weather_data2 daily_forecasts=daily_forecasts2 %}
     </div>
   {% endif %}
   </center>
